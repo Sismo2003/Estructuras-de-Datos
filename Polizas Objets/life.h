@@ -24,7 +24,7 @@ class Life{
         void set_benefits(){
             int benefits_size;
             cout<<"Ingrese la cantidad de covertira que desea en el plan de vida: ";
-            cin>>benefits_size;cout<<enl;
+            cin>>benefits_size;
             for(int it = 0 ; it != benefits_size ; it++){
                 string temporary_answer;
                 cout<<"Ingrese la covertura numero "<< it + 1 <<": ";

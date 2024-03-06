@@ -13,12 +13,13 @@ class user {
         string address;
         int amount;
         int monthly_Payment;
-        Life vida;
-        automovile car;
-        house House;
+
 
 
     public:
+        Life vida;
+        automovile car;
+        house House;
         string get_Client_Name(){
             return Client_Name;
         };
@@ -41,8 +42,12 @@ class user {
             return monthly_Payment;
         };
         void set_Client_Name(){
-            cout<<"\nIngrese el nombre del cliente responsable de la poliza: ";
-            cin>>Client_Name;cout<<enl;
+            cout<<"Ingrese el nombre del cliente responsable de la poliza: ";
+            cin>>Client_Name;
+        };
+        void set_addres(){
+            cout<<"Ingresa el domicilio actual: ";
+            cin>>address;
         };
         void set_age(){
             cout<<"Ingrese la edad de cliente responsable de la poliza: ";
@@ -74,7 +79,6 @@ class user {
             House.set_Electronic_Devices();
             House.set_House_Antiquity();
         };
-
 };
 
 

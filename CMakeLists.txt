@@ -10,4 +10,10 @@ add_executable(Estructuras_de_Datos
         "Polizas Objets/house.h"
         "Polizas Objets/life.h"
         "Polizas Objets/main.cpp"
-        "Polizas Objets/user.h")
+        "Polizas Objets/user.h"
+        "arreglo Lista/arreglo.cpp"
+        "Tarea 4/arreglo.cpp"
+        "Tarea 4/arreglo_lista.cpp"
+        "Tarea 5/pila.h"
+        node/node.cpp
+        node/node.h)

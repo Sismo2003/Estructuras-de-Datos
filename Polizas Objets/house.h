@@ -24,12 +24,9 @@ class house {
         };
         void set_Electronic_Devices(){
             int user_Answer_Flag = 0;
-            while(user_Answer_Flag <= 2 ){
-                cout<<"Ingrese la respuesta en numeros\n 1.Si\n 2.No"<<enl;
-                cout<<"Usted tiene dispositivos electronicos: ";
-                cin>>user_Answer_Flag;
-                cout<<enl;
-            }
+            cout<<"Ingrese la respuesta en numeros\n 1.Si\n 2.No"<<enl;
+            cout<<"Usted tiene dispositivos electronicos: ";
+            cin>>user_Answer_Flag;
             if(user_Answer_Flag == 1 ){
                 electronic_Devices = true;
             } else{
@@ -38,5 +35,18 @@ class house {
         };
 };
 
+class date{
+    private:
+        int hora;
+        int segundo;
+        int minuto;
+    public:
+        void cambiarhora();
+        void cambiarSegundo();
+        void cambiarMinuto();
+    date(int inicioConSegundo){
+        segundo = inicioConSegundo;
+    };
+};
 
 #endif //ESTRUCTURAS_DE_DATOS_HOUSE_H
