@@ -29,12 +29,12 @@ class node {
         void setSiguiente(node *s){
             this->siguiente = s;
         }
-        node getSiguiente(){
+        node* getSiguiente(){
             return this->siguiente;
         }
-        void * getSiguienteptr(){
-            return this->siguiente;
-        }
+
+
+
 };
 
 
