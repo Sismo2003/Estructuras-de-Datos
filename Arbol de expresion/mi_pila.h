@@ -1,17 +1,67 @@
-#include <bits/stdc++.h>
-#include "arreglo_pila.hpp"
-// Constructor con tamaño especificado
+#ifndef PILA_HPP
+#define PILA_HPP
+
+template <typename objeto>
+class pila {
+private:
+    int i; // Índice actual del tope de la pila
+    int cap; // Capacidad actual de la pila
+    objeto* arr; // Arreglo para almacenar los elementos de la pila
+
+public:
+    // Constructor con tamaño especificado
+    pila(int tam);
+
+    // Constructor de copia
+    pila(const pila &rhs);
+
+    // Constructor de movimiento
+    pila(pila &&rhs);
+
+    // Constructor por defecto
+    pila();
+
+    // Destructor
+    ~pila();
+
+    // Operador de asignación por copia
+    pila &operator=(const pila &rhs);
+
+    // Operador de asignación por movimiento
+    pila &operator=(pila &&rhs);
+
+    // Agrega un elemento al tope de la pila
+    void push(const objeto &rhs);
+
+    // Agrega un elemento al tope de la pila utilizando movimiento
+    void push(objeto &&rhs);
+
+    // Elimina el elemento del tope de la pila
+    void pop_top();
+
+    // Devuelve una referencia al elemento del tope de la pila
+    objeto &top();
+
+    // Devuelve una referencia constante al elemento del tope de la pila
+    const objeto &top() const;
+
+    // Devuelve el número de elementos en la pila
+    int size() const;
+
+    // Verifica si la pila está vacía
+    bool empty() const;
+};
+
+// Implementación de la clase pila
 template<typename objeto>
 pila<objeto>::pila(int tam) : i{0}, cap{tam}, arr{new objeto[cap]} {}
 
-// Constructor de copia
 template<typename objeto>
 pila<objeto>::pila(const pila &rhs) : i{rhs.i}, cap{rhs.cap}, arr{new objeto[cap]} {
     for (int k = 0; k < i; k++)
         arr[k] = rhs.arr[k];
 }
 
-// Constructor de movimiento
 template<typename objeto>
 pila<objeto>::pila(pila &&rhs) : i{rhs.i}, cap{rhs.cap}, arr{rhs.arr} {
     rhs.i = 0;
@@ -19,17 +69,14 @@ pila<objeto>::pila(pila &&rhs) : i{rhs.i}, cap{rhs.cap}, arr{rhs.arr} {
     rhs.arr = nullptr;
 }
 
-// Constructor por defecto
 template<typename objeto>
 pila<objeto>::pila() : i{0}, cap{10}, arr{new objeto[10]} {}
 
-// Destructor
 template<typename objeto>
 pila<objeto>::~pila() {
     delete[] arr;
 }
 
-// Operador de asignación por copia
 template<typename objeto>
 pila<objeto> &pila<objeto>::operator=(const pila &rhs) {
     pila copia = rhs;
@@ -39,7 +86,6 @@ pila<objeto> &pila<objeto>::operator=(const pila &rhs) {
     return *this;
 }
 
-// Operador de asignación por movimiento
 template<typename objeto>
 pila<objeto> &pila<objeto>::operator=(pila &&rhs) {
     swap(cap, rhs.cap);
@@ -48,7 +94,6 @@ pila<objeto> &pila<objeto>::operator=(pila &&rhs) {
     return *this;
 }
 
-// Agrega un elemento al tope de la pila
 template<typename objeto>
 void pila<objeto>::push(const objeto &rhs) {
     if (i == cap)
@@ -56,7 +101,6 @@ void pila<objeto>::push(const objeto &rhs) {
     arr[i++] = rhs;
 }
 
-// Agrega un elemento al tope de la pila utilizando movimiento
 template<typename objeto>
 void pila<objeto>::push(objeto &&rhs) {
     if (i == cap)
@@ -64,7 +108,6 @@ void pila<objeto>::push(objeto &&rhs) {
     arr[i++] = std::move(rhs);
 }
 
-// Elimina el elemento del tope de la pila
 template<typename objeto>
 void pila<objeto>::pop_top() {
     if (empty()) // La pila está vacía, no se puede hacer pop
@@ -72,7 +115,6 @@ void pila<objeto>::pop_top() {
     --i;
 }
 
-// Devuelve una referencia al elemento del tope de la pila
 template<typename objeto>
 objeto &pila<objeto>::top() {
     if (empty()) // La pila está vacía
@@ -80,7 +122,6 @@ objeto &pila<objeto>::top() {
     return arr[i - 1];
 }
 
-// Devuelve una referencia constante al elemento del tope de la pila
 template<typename objeto>
 const objeto &pila<objeto>::top() const {
     if (empty()) // La pila está vacía
@@ -88,14 +129,14 @@ const objeto &pila<objeto>::top() const {
     return arr[i - 1];
 }
 
-// Devuelve el número de elementos en la pila
 template<typename objeto>
 int pila<objeto>::size() const {
     return i;
 }
 
-// Verifica si la pila está vacía
 template<typename objeto>
 bool pila<objeto>::empty() const {
     return i == 0;
 }
+
+#endif // PILA_HPP

@@ -6,20 +6,18 @@
 using namespace std; 
 using namespace std::filesystem; 
 
-int main() 
-{ 
+int main(){
 	// Define the directory path to list files from 
-	path directorypath = "/"; 
+	path directorypath = "/dsad/dasda/asda/sdas/das/dasd";
+    string nametxt = 'inputclient.txt';
+
+
 
 	// To check if the directory exists or not 
-	if (exists(directorypath) 
-		&& is_directory(directorypath)) { 
-		// Loop through each item (file or subdirectory) in 
-		// the directory 
-		for (const auto& entry : 
-			directory_iterator(directorypath)) { 
-			// Output the path of the file or subdirectory 
-			cout << "File: " << entry.path() << endl; 
+	if (exists(directorypath) && is_directory(directorypath)) {
+
+		for (const auto& entry : directory_iterator(directorypath)) {
+			cout << "File: " << entry.path() << endl;
 		} 
 	} 
 	else { 
